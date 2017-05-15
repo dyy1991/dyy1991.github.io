@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://www.dyy1991.xyz/2017/05/09/markdown-test/</loc>
-    <lastmod>2017-05-09T09:15:44.684Z</lastmod>
+    <lastmod>2017-05-15T07:22:53.790Z</lastmod>
     <data>
         <display>
         <title>markdown语法练习</title>
@@ -19,12 +19,42 @@
 
     
   <url>
+    <loc>http://www.dyy1991.xyz/2017/05/10/hexo-summary/</loc>
+    <lastmod>2017-05-10T06:23:44.628Z</lastmod>
+    <data>
+        <display>
+        <title>hexo使用的一些总结</title>
+        <pubTime>2017-05-10T06:01:38.310Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.dyy1991.xyz/2017/05/08/2017-05-08-summary/</loc>
-    <lastmod>2017-05-08T09:21:40.147Z</lastmod>
+    <lastmod>2017-05-10T02:36:33.492Z</lastmod>
     <data>
         <display>
         <title>hexo-github博客搭建过程总结</title>
         <pubTime>2017-05-08T02:11:28.332Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.dyy1991.xyz/2017/05/02/hello-world/</loc>
+    <lastmod>2017-05-10T02:30:05.337Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo搭建模板</title>
+        <pubTime>2017-05-02T01:37:38.224Z</pubTime>
         
          
            
@@ -40,21 +70,6 @@
         <display>
         <title>庆祝</title>
         <pubTime>2017-05-05T09:39:15.817Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.dyy1991.xyz/2017/05/02/hello-world/</loc>
-    <lastmod>2017-05-05T09:28:07.629Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo搭建模板</title>
-        <pubTime>2017-05-02T01:37:38.224Z</pubTime>
         
          
            
