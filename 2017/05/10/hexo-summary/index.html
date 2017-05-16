@@ -83,7 +83,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
 
 
 
@@ -96,7 +96,7 @@
 <meta property="og:url" content="http://www.dyy1991.xyz/2017/05/10/hexo-summary/index.html">
 <meta property="og:site_name" content="大风起兮云飞扬">
 <meta property="og:description" content="用hexo和GitHub搭建博客真的是踩了好多雷，总结一下吧，省的过两天又忘了。">
-<meta property="og:updated_time" content="2017-05-10T06:23:44.628Z">
+<meta property="og:updated_time" content="2017-05-16T02:06:09.085Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo使用的一些总结">
 <meta name="twitter:description" content="用hexo和GitHub搭建博客真的是踩了好多雷，总结一下吧，省的过两天又忘了。">
@@ -204,6 +204,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -220,6 +230,16 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="http://www.qq.com/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
           </a>
         </li>
       
@@ -326,6 +346,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  364
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -342,10 +393,10 @@
         <pre><code>用hexo和GitHub搭建博客真的是踩了好多雷，总结一下吧，省的过两天又忘了。
 </code></pre><a id="more"></a>
 <h1 id="hexo的安装"><a href="#hexo的安装" class="headerlink" title="hexo的安装"></a>hexo的安装</h1><ol>
-<li><p>先安装nodejs和git，nodejs是为了用它的<figure class="highlight plain"><figcaption><span>bash $npm install -g hexo-cli ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2. 然后在你要创建本地博客工程处Git bash执行``` $hexo init</div></pre></td></tr></table></figure></p>
+<li><p>先安装nodejs和git，nodejs是为了用它的npm指令，比如<figure class="highlight bash"><figcaption><span>$npm install -g hexo-cli ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2. 然后在你要创建本地博客工程处Git bash执行``` <span class="variable">$hexo</span> init</div></pre></td></tr></table></figure></p>
 </li>
 <li><p>如果要与GitHub的你的那个博客工程关联发布，需要安装hexo-deployer-git：</p>
-<figure class="highlight plain"><figcaption><span>install hexo-deployer-git --save```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">然后在根目录下的_config.yml文件里修改deploy的配置：</div><div class="line">``` deploy:</div><div class="line"> type: git</div><div class="line"> repo: git@github.com:用户名/仓库名（这个可以在GitHub页面copy）</div><div class="line"> branch: master</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>install hexo-deployer-git --save ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">然后在根目录下的_config.yml文件里修改deploy的配置：</div><div class="line">``` deploy:</div><div class="line"> type: git</div><div class="line"> repo: git@github.com:用户名/仓库名（这个可以在GitHub页面copy）</div><div class="line"> branch: master</div></pre></td></tr></table></figure>
 <p>这里留了一个坑，之前发布都没问题了，可是过了个周末再用就卡在ssh上了，总是permission denied，一开始真的是一脸懵逼，因为从来没用过hexo、GitHub、git、nodejs、ssh，完全不知道发生了什么，到网上查了半天，都不对症，大部分都是因为没有在GitHub配置公私钥，一部分是说git版本问题，但我用的是根正苗红的gitbash，而且之前是对的，问过GitHub工作人员，可是他们检查过了我的ssh配置是对的，也就是说问题出在本地的ssh配置或者是hexo的发布机制哪里没匹配好，总之现在自动发布还是失败的，只能本地<code>$hexo g</code>之后将public里面文件手动同步到本地的GitHub仓库然后提交，蛋疼。</p>
 </li>
 </ol>
@@ -395,6 +446,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/05/16/hexo-next-summary/" rel="prev" title="next主题的总结">
+                next主题的总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -407,6 +462,12 @@
 
 
     <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
       
     </div>
   </div>
@@ -483,7 +544,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -492,12 +553,41 @@
           
 
           
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
 
         </nav>
 
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/dyy1991/dyy1991.github.io" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="FaceBook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  FaceBook
+                </a>
+              </span>
+            
           
         </div>
 
@@ -745,6 +835,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
   
 
 
