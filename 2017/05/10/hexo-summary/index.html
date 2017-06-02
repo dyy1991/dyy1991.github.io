@@ -96,7 +96,7 @@
 <meta property="og:url" content="http://www.dyy1991.xyz/2017/05/10/hexo-summary/index.html">
 <meta property="og:site_name" content="大风起兮云飞扬">
 <meta property="og:description" content="用hexo和GitHub搭建博客真的是踩了好多雷，总结一下吧，省的过两天又忘了。">
-<meta property="og:updated_time" content="2017-05-16T02:06:09.085Z">
+<meta property="og:updated_time" content="2017-05-16T06:07:53.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo使用的一些总结">
 <meta name="twitter:description" content="用hexo和GitHub搭建博客真的是踩了好多雷，总结一下吧，省的过两天又忘了。">
@@ -157,7 +157,7 @@
   
     
   
-
+<a href="https://github.com/dyy1991/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" ></a>
   <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
@@ -235,7 +235,7 @@
       
         
         <li class="menu-item menu-item-commonweal">
-          <a href="http://www.qq.com/404/" rel="section">
+          <a href="/404.html" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
             
@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  364
+                  365
                 </span>
               
 
@@ -390,13 +390,12 @@
       
 
       
-        <pre><code>用hexo和GitHub搭建博客真的是踩了好多雷，总结一下吧，省的过两天又忘了。
-</code></pre><a id="more"></a>
+        <p>用hexo和GitHub搭建博客真的是踩了好多雷，总结一下吧，省的过两天又忘了。<br><a id="more"></a></p>
 <h1 id="hexo的安装"><a href="#hexo的安装" class="headerlink" title="hexo的安装"></a>hexo的安装</h1><ol>
-<li><p>先安装nodejs和git，nodejs是为了用它的npm指令，比如<figure class="highlight bash"><figcaption><span>$npm install -g hexo-cli ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2. 然后在你要创建本地博客工程处Git bash执行``` <span class="variable">$hexo</span> init</div></pre></td></tr></table></figure></p>
-</li>
-<li><p>如果要与GitHub的你的那个博客工程关联发布，需要安装hexo-deployer-git：</p>
-<figure class="highlight plain"><figcaption><span>install hexo-deployer-git --save ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">然后在根目录下的_config.yml文件里修改deploy的配置：</div><div class="line">``` deploy:</div><div class="line"> type: git</div><div class="line"> repo: git@github.com:用户名/仓库名（这个可以在GitHub页面copy）</div><div class="line"> branch: master</div></pre></td></tr></table></figure>
+<li>先安装nodejs和git，nodejs是为了用它的<code>npm</code>指令，比如 <code>bash $npm install -g hexo-cli</code></li>
+<li>然后在你要创建本地博客工程处Git bash执行<br><code>$hexo init</code></li>
+<li><p>如果要与GitHub的你的那个博客工程关联发布，需要安装hexo-deployer-git：<br><code>npm install hexo-deployer-git --save</code><br>然后在根目录下的_config.yml文件里修改deploy的配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line"> <span class="built_in">type</span>: git</div><div class="line"> repo: git@github.com:用户名/仓库名（这个可以在GitHub页面copy）</div><div class="line"> branch: master</div></pre></td></tr></table></figure>
 <p>这里留了一个坑，之前发布都没问题了，可是过了个周末再用就卡在ssh上了，总是permission denied，一开始真的是一脸懵逼，因为从来没用过hexo、GitHub、git、nodejs、ssh，完全不知道发生了什么，到网上查了半天，都不对症，大部分都是因为没有在GitHub配置公私钥，一部分是说git版本问题，但我用的是根正苗红的gitbash，而且之前是对的，问过GitHub工作人员，可是他们检查过了我的ssh配置是对的，也就是说问题出在本地的ssh配置或者是hexo的发布机制哪里没匹配好，总之现在自动发布还是失败的，只能本地<code>$hexo g</code>之后将public里面文件手动同步到本地的GitHub仓库然后提交，蛋疼。</p>
 </li>
 </ol>
@@ -544,7 +543,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -585,6 +584,24 @@
                     <i class="fa fa-fw fa-facebook"></i>
                   
                   FaceBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
                 </a>
               </span>
             
@@ -639,7 +656,7 @@
   &copy; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-ship"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">邓越洋</span>
 </div>
@@ -695,6 +712,8 @@
 
   </div>
 
+ <script type="text/javascript" color="0,0,225" opacity="0.7" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
   
 
 <script type="text/javascript">
@@ -713,6 +732,8 @@
 
   
 
+
+  
 
 
 
@@ -741,6 +762,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="true"></script>
 
 
   
@@ -833,6 +857,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   
