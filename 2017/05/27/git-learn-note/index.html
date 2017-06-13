@@ -96,7 +96,7 @@
 <meta property="og:url" content="http://www.dyy1991.xyz/2017/05/27/git-learn-note/index.html">
 <meta property="og:site_name" content="大风起兮云飞扬">
 <meta property="og:description" content="在learn git branching上进行学习，记录一些命令。">
-<meta property="og:updated_time" content="2017-06-01T03:36:12.680Z">
+<meta property="og:updated_time" content="2017-06-02T01:24:17.503Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git学习笔记">
 <meta name="twitter:description" content="在learn git branching上进行学习，记录一些命令。">
@@ -157,7 +157,7 @@
   
     
   
-<a href="https://github.com/dyy1991/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" ></a>
+<a href="https://github.com/dyy1991/"><img style="position: absolute; top: 0; right: 0; border: 0;"  src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" ></a>
   <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  580
+                  607
                 </span>
               
 
@@ -395,14 +395,15 @@
 <li>提交操作，<code>$ git commit</code>对当前分支进行提交，产生新的记录并记录下其父节点</li>
 <li>创建和切换分支，<code>$ git branch &lt;分支名&gt;</code>创建一个新的分支，<code>$ git checkout &lt;分支名&gt;</code>切换到某分支，<code>git checkout -b &lt;分支名&gt;</code>这个命令是个组合命令，可以直接创建并切换到该分支</li>
 <li>分支与合并<code>$ git merge &lt;分支名&gt;</code>，将某一分支合并到当前分支，被合并的分支提交记录将在当前分支得以体现。</li>
-<li>线性分支合并，<code>$ git rebase &lt;分支名&gt;</code>将当前分支的所在的记录链复制一份移到目标分支.</li>
+<li>线性分支合并，<code>$ git rebase &lt;分支名&gt;</code>将当前分支的所在的记录链复制一份移到目标分支，如果有相同提交记录则合并。</li>
 <li>使用<code>-f</code> 选项让分支指向另一个提交，例如：<code>$git branch -f master HEAD~3</code>,将master分支强制移动到HEAD的3级父提交。</li>
 <li>撤销变更，在当前提交记录基础上撤销，本地撤销使用<code>$ git reset HEAD~1</code>向前回退一次提交，但是这只是在本地更改，被撤销的操作是未被存入暂存区，但是已提交到远成仓库的不受影响，远程仓库回退用<code>$ git revert HEAD</code>就是相当于在远程仓库提交一个上一版本的记录。</li>
 <li><code>$ git cherry-pick &lt;分支号哈希值&gt; &lt;分支号哈希值&gt;...</code>分支号是哈希值，不是分支名，将目标几个提交记录提交到当前分支下</li>
 <li>交互式rebase，指的是–interactive的rebase命令，简写为<code>-i</code>,在其后加上<code>HEAD~n</code>就是向前几个节点，例如<code>$ git rebase -i HEAD~4</code>,之后在弹出的UI页面进行拖动和对pick状态进行更改，即可实现调整记录顺序。</li>
 <li><code>$ git commit --amend</code>提交并移动分支</li>
 <li>git的tag标记，<code>$ git tag &lt;标记名&gt; &lt;分支哈希值&gt;</code>，该tag是该提交记录绑定的。</li>
-<li><code>$ git describe &lt;ref&gt;</code>用来描述离你最近的锚点，也就是tag，<ref>可以是任何能被Git识别成提交记录的引用，没有时默认是HEAD坐在提交记录，其输出结果格式为 <code>&lt;tag&gt;_&lt;numCommits&gt;_g&lt;hash&gt;</code>，tag是离ref最近的标签，numCommits是表示tag与ref相差多少个提交记录，hash表示的是给定的ref的哈希值的前几位。<code>$ git bisect</code></ref></li>
+<li><code>$ git describe &lt;ref&gt;</code>用来描述离你最近的锚点，也就是tag，<ref>可以是任何能被Git识别成提交记录的引用，没有时默认是HEAD坐在提交记录，其输出结果格式为 <code>&lt;tag&gt;_&lt;numCommits&gt;_g&lt;hash&gt;</code>，tag是离ref最近的标签，numCommits是表示tag与ref相差多少个提交记录，hash表示的是给定的ref的哈希值的前几位。<code>$ git bisect</code>。</ref></li>
+<li>‘^’符号，可以指定选择第几个父提交，</li>
 </ol>
 
       
@@ -449,6 +450,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/02/2017-06-02-设计模式笔记/" rel="prev" title="设计模式学习笔记">
+                设计模式学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -535,7 +540,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

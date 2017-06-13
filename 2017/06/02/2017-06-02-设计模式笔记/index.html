@@ -1,0 +1,966 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="java开发中的23种设计模式学习笔记。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式学习笔记">
+<meta property="og:url" content="http://www.dyy1991.xyz/2017/06/02/2017-06-02-设计模式笔记/index.html">
+<meta property="og:site_name" content="大风起兮云飞扬">
+<meta property="og:description" content="java开发中的23种设计模式学习笔记。">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/1199/eebe2103-6ced-35f2-8664-3a2e8a557f81.jpg?_=3023236">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/1201/35f0b172-b976-3757-bb51-c65d5c9ce68e.jpg?_=3023236">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/1205/09cab656-5ff9-380e-9df1-326339ac3509.jpg?_=3023236">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0083/1211/5e2feb58-4170-3c07-a370-ed99bdcab223.jpg?_=3023236">
+<meta property="og:updated_time" content="2017-06-12T01:20:38.017Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式学习笔记">
+<meta name="twitter:description" content="java开发中的23种设计模式学习笔记。">
+<meta name="twitter:image" content="http://dl.iteye.com/upload/attachment/0083/1199/eebe2103-6ced-35f2-8664-3a2e8a557f81.jpg?_=3023236">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.dyy1991.xyz/2017/06/02/2017-06-02-设计模式笔记/"/>
+
+
+
+
+
+  <title>设计模式学习笔记 | 大风起兮云飞扬</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+<a href="https://github.com/dyy1991/"><img style="position: absolute; top: 0; right: 0; border: 0;"  src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" ></a>
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">大风起兮云飞扬</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">真的猛士</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.dyy1991.xyz/2017/06/02/2017-06-02-设计模式笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="邓越洋">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://github.com/dyy1991/dyy1991.github.io/raw/master/images/404.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大风起兮云飞扬">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                设计模式学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-02T14:22:37+08:00">
+                2017-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/02/2017-06-02-设计模式笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/02/2017-06-02-设计模式笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  2,223
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>  java开发中的23种设计模式学习笔记。<br>  <a id="more"></a></p>
+<ul>
+<li><h1 id="一、设计模式的分类"><a href="#一、设计模式的分类" class="headerlink" title="一、设计模式的分类"></a>一、设计模式的分类</h1>总的来说，设计模式可分为三大类，分别为：</li>
+</ul>
+<ol>
+<li>创建行模式：工厂方法模式，抽象工厂模式，单例模式，建造者模式，圆形模式。</li>
+<li>结构性模式：适配器模式，装饰器模式，代理模式，外观模式，桥接模式，组合模式，享元模式。</li>
+<li>行为性模式：策略模式，模板方法模式，观察者模式，迭代子模式，责任链模式，命令模式，备忘录模式，状态模式，访问者模式，终结者模式，解释器模式。<br>另外还有两类：并发型模式和线程池模式。  </li>
+</ol>
+<ul>
+<li><h1 id="二、设计模式六大原则"><a href="#二、设计模式六大原则" class="headerlink" title="二、设计模式六大原则"></a>二、设计模式六大原则</h1></li>
+</ul>
+<ol>
+<li>开闭原则：对扩展开放，对修改关闭。意思就是当程序需要新功能时不能改原有代码，而是可以新增方法或接口，易于维护和升级。</li>
+<li>里氏代换原则：任何基类可以出现的地方，其子类都可以出现，也就是说子类完全继承实现了基类的一切，这样才能保证基类的复用，子类也保证了可以在基类基础上进行扩展而不影响功能。</li>
+<li>依赖倒转原则： 面向接口编程思想，也就是说系统的逻辑和架构通过抽象类或接口进行定义和规范，而不是在具体实现类当中进行描述。</li>
+<li>接口隔离原则： 尽量减少类依赖的接口中的方法，也就是说尽量将依赖的接口拆分，其中尽量不包含对类不必要的方法。</li>
+<li>迪米特法则： 又称最少知识原则，就是解耦，一个类其功能的实现逻辑尽量不依赖外部类，而是封装在类内部，以减少外部类对其的影响。</li>
+<li>单一职责原则： 尽量一个类或方法实现单一的业务或操作，这样可以解耦，避免了修改代码时可能引起的问题，并且颗粒度小，方便复用和修改。</li>
+</ol>
+<ul>
+<li><h1 id="三、设计模式详解："><a href="#三、设计模式详解：" class="headerlink" title="三、设计模式详解："></a>三、设计模式详解：</h1><ul>
+<li>工厂方法模式：<ul>
+<li>普通工厂模式：将要生产的实例抽象出其抽象类，由Factory根据输入条件进行生产并返回。如对于用户对象，抽象出一个User，然后若干实例如用户1、用户2都继承User，Factory里有一个类似getUser的方法，根据输入的参数确定具体返回User1或User2，方法本身返回值类型就是User。</li>
+<li>多个工厂模式：为避免参数无效产生的错误或无法获取等问题，将获取不同实例的方法拆分成各个独立方法，如getUser1(),getUser2()等。</li>
+<li>静态工厂方法模式：将上面多个工厂模式的获取方法写成静态方法，这样就可以直接调用，不需要实例化工厂。</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>抽象工厂模式：<br>工厂模式由于类的创建依赖于工厂这个实体类，导致如果要拓展程序，就需要修改工厂类代码，违背闭包原则。抽象工厂模式可以解决这个问题，将工厂也抽象出来，这样拓展时就不用改原来的工厂类，而是通过新加工厂类和生产的实例关系就可以了。</li>
+<li>单例模式：保证了在java应用中jvm中只有一个实例存在，对于一些复杂类而言可以节省实例化的开销，同时也减少了GC压力，最重要的应用场景就是该实例在系统中本身具有特殊意义，不可以被创建导致注入权限、关键信息被篡改等。当然，在单例创建时需要考虑线程安全和并发等问题。</li>
+<li>建造者模式：与工厂模式类似，区别在于工厂模式只返回实例对象，而建造者模式可以返回对象的组合，比如说list<object>或map<object,object>等。</object,object></object></li>
+<li><p>原型模式：该模式就是将一个对象作为原型，对其进行复制（克隆），产生一个和原对象类似的新对象。这里介绍一下java中的浅复制和深复制：</p>
+<ul>
+<li><p>浅复制：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 浅复制 */</span>  </div><div class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException </span>&#123;  </div><div class="line">    Prototype proto = (Prototype) <span class="keyword">super</span>.clone();  </div><div class="line">    <span class="keyword">return</span> proto;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>深复制：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 深复制 */</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">deepClone</span><span class="params">()</span> <span class="keyword">throws</span> IOException, ClassNotFoundException </span>&#123;  </div><div class="line">        <span class="comment">/* 写入当前对象的二进制流 */</span>  </div><div class="line">        ByteArrayOutputStream bos = <span class="keyword">new</span> ByteArrayOutputStream();  </div><div class="line">        ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(bos);  </div><div class="line">        oos.writeObject(<span class="keyword">this</span>);  </div><div class="line">        <span class="comment">/* 读出二进制流产生的新对象 */</span>  </div><div class="line">        ByteArrayInputStream bis = <span class="keyword">new</span> ByteArrayInputStream(bos.toByteArray());  </div><div class="line">        ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(bis);  </div><div class="line">        <span class="keyword">return</span> ois.readObject();  </div><div class="line">    &#125;</div><div class="line">```  </div><div class="line">- 七种结构型模式，包括适配器模式、装饰模式、代理模式、外观模式、桥接模式、组合模式、享元模式，适配器模式是其他六种模式的起源，其关系如图：</div><div class="line">![结构型模式关系图](http:<span class="comment">//dl.iteye.com/upload/attachment/0083/1187/e28698b9-994e-3fa8-8810-16f30e7cf3e3.jpg?_=3023236)  </span></div><div class="line">- 适配器模式</div><div class="line">  适配器模式目的是消除由于接口不匹配所造成的类的兼容性问题，主要分为三类：类的适配器模式，对象的适配器模式，接口的适配器模式。</div><div class="line">  - 类的适配器模式：将一个类的方法通过adapter扩展到目标接口，具体体现方式是用adapter继承目标类并实现目标接口就可以。</div><div class="line">  ``` java</div><div class="line">  <span class="comment">//目标类，也就是要适配的类，method1就是要适配的方法</span></div><div class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Source</span> </span>&#123;  </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span> </span>&#123;  </div><div class="line">        System.out.println(<span class="string">"this is original method!"</span>);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div><div class="line"><span class="comment">// 适配接口，目标方法就是要扩展到这个接口</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Targetable</span> </span>&#123;  </div><div class="line"></div><div class="line">    <span class="comment">/* 与原类中的方法相同 */</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span></span>;  </div><div class="line"></div><div class="line">    <span class="comment">/* 新类的方法 */</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span></span>;  </div><div class="line">&#125;</div><div class="line"><span class="comment">// 适配器类</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Adapter</span> <span class="keyword">extends</span> <span class="title">Source</span> <span class="keyword">implements</span> <span class="title">Targetable</span> </span>&#123;  </div><div class="line"></div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span> </span>&#123;  </div><div class="line">        System.out.println(<span class="string">"this is the targetable method!"</span>);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>对象的适配器模式： 与类的适配器思路类似，不过adapter不是继承目标类，而是持有目标类的实例。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 适配器类</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Adapter</span>  <span class="keyword">implements</span> <span class="title">Targetable</span> </span>&#123;  </div><div class="line"> <span class="keyword">private</span> Source source;</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="title">Adapter</span><span class="params">(Source source)</span></span>&#123;</div><div class="line">   <span class="keyword">super</span>();</div><div class="line">   <span class="keyword">this</span>.source=source;</div><div class="line"> &#125;</div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span> </span>&#123;  </div><div class="line">        System.out.println(<span class="string">"this is the targetable method!"</span>);  </div><div class="line">    &#125;  </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span></span>&#123;</div><div class="line">      source.method1();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>接口的适配器模式：由于实现接口需要实现所有的方法，而这样很有可能造成浪费，因为该类不需要这么多方法，所以就需要接口的适配器，实现思路是通过一个抽象类，该抽象类实现该接口，实现所有方法，然后我们的类继承该抽象类就可以不必重写所有方法，只重写需要的方法即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">  <span class="comment">//目标接口</span></div><div class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sourceable</span> </span>&#123;  </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span></span>;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span></span>;  </div><div class="line">&#125;</div><div class="line"><span class="comment">// 抽象类</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Wrapper2</span> <span class="keyword">implements</span> <span class="title">Sourceable</span></span>&#123;  </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span></span>&#123;&#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span></span>&#123;&#125;  </div><div class="line">&#125;</div><div class="line"><span class="comment">// 开发时用的类，每个类各自实现自己需要的方法</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SourceSub1</span> <span class="keyword">extends</span> <span class="title">Wrapper2</span> </span>&#123;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span></span>&#123;  </div><div class="line">        System.out.println(<span class="string">"the sourceable interface's first Sub1!"</span>);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SourceSub2</span> <span class="keyword">extends</span> <span class="title">Wrapper2</span> </span>&#123;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span></span>&#123;  </div><div class="line">        System.out.println(<span class="string">"the sourceable interface's second Sub2!"</span>);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>装饰模式：就是给一个对象增加一些新的功能，而且是动态的，就是不在目标类目标方法修改，而是通过装饰类加一个方法包含被装饰的方法，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">  <span class="comment">//中间接口</span></div><div class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sourceable</span> </span>&#123;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>;  </div><div class="line">&#125;</div><div class="line"><span class="comment">//要被装饰的类和方法</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Source</span> <span class="keyword">implements</span> <span class="title">Sourceable</span> </span>&#123;  </div><div class="line"></div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> </span>&#123;  </div><div class="line">        System.out.println(<span class="string">"the original method!"</span>);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div><div class="line"><span class="comment">//装饰类</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Decorator</span> <span class="keyword">implements</span> <span class="title">Sourceable</span> </span>&#123;  </div><div class="line"></div><div class="line">    <span class="keyword">private</span> Sourceable source;  </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Decorator</span><span class="params">(Sourceable source)</span></span>&#123;  </div><div class="line">        <span class="keyword">super</span>();  </div><div class="line">        <span class="keyword">this</span>.source = source;  </div><div class="line">    &#125;  </div><div class="line">    <span class="comment">//装饰方法</span></div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> </span>&#123;  </div><div class="line">        System.out.println(<span class="string">"before decorator!"</span>);  </div><div class="line">        source.method();  <span class="comment">//被装饰的方法</span></div><div class="line">        System.out.println(<span class="string">"after decorator!"</span>);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在实例化一个source目标类之后，在调用装饰类的构造方法添加被装饰的类，之后调用装饰类的装饰方法就可以实现装饰效果。</p>
+</li>
+<li>代理模式：实现方式类似于装饰模式，作用是用于改进原有方法而不修改原代码。</li>
+<li>外观模式：将类和类之间的关系放到一个Facade类中，以降低类之间的耦合度。<br><img src="http://dl.iteye.com/upload/attachment/0083/1199/eebe2103-6ced-35f2-8664-3a2e8a557f81.jpg?_=3023236" alt="外观模式示意图"></li>
+<li>桥接模式：将抽象化与实现化解耦，使得二者可以独立变化。其实就是将要实现的功能抽象到一个接口，然后将该接口交给Bridge，在Bridge的实现类当中进行调用<br><img src="http://dl.iteye.com/upload/attachment/0083/1201/35f0b172-b976-3757-bb51-c65d5c9ce68e.jpg?_=3023236" alt="桥接模式示意图"></li>
+<li>组合模式：在处理类似树形结构的问题时比较方便，如图：<img src="http://dl.iteye.com/upload/attachment/0083/1205/09cab656-5ff9-380e-9df1-326339ac3509.jpg?_=3023236" alt="组合模式示意图"><br>一般用于二叉树。</li>
+<li>享元模式：主要目的是实现对象的共享，当系统中对象比较多的时候可以减少内存的开销，通常与工厂模式一起使用。享元工厂中持有一个对象池，当客户端发出请求时，工厂检验是够存在符合条件的对象，如果有则返回该对象，如果没有则新建一个对象返回，类似于多例模式。</li>
+<li>接下来是十一种行为型模式：<br>这十一种模式的关系如图所示：<br><img src="http://dl.iteye.com/upload/attachment/0083/1211/5e2feb58-4170-3c07-a370-ed99bdcab223.jpg?_=3023236" alt="行为型模式关系图"></li>
+<li>策略模式：</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/27/git-learn-note/" rel="next" title="git学习笔记">
+                <i class="fa fa-chevron-left"></i> git学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/12/2017-06-12/" rel="prev" title="Mon Jun 12 2017 00:00:00 GMT+0800 (中国标准时间)">
+                Mon Jun 12 2017 00:00:00 GMT+0800 (中国标准时间) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+ <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'dyy1991'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://github.com/dyy1991/dyy1991.github.io/raw/master/images/404.jpg"
+               alt="邓越洋" />
+          <p class="site-author-name" itemprop="name">邓越洋</p>
+           
+              <p class="site-description motion-element" itemprop="description">我的GitHub博客@_@</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/dyy1991/dyy1991.github.io" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="FaceBook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  FaceBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、设计模式的分类"><span class="nav-number">1.</span> <span class="nav-text">一、设计模式的分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、设计模式六大原则"><span class="nav-number">2.</span> <span class="nav-text">二、设计模式六大原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、设计模式详解："><span class="nav-number">3.</span> <span class="nav-text">三、设计模式详解：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-ship"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">邓越洋</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+<span id="busuanzi_container_site_pv">
+    ��վ�ܷ�����<span id="busuanzi_value_site_uv"></span>��
+</span>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+ <script type="text/javascript" color="0,0,225" opacity="0.7" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="true"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://dyy1991.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.dyy1991.xyz/2017/06/02/2017-06-02-设计模式笔记/';
+          this.page.identifier = '2017/06/02/2017-06-02-设计模式笔记/';
+          this.page.title = '设计模式学习笔记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://dyy1991.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
